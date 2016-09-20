@@ -1,5 +1,7 @@
 # Simple RESTful webservice use  to manage students
 
+Demo on heroku: [https://calm-beach-85847.herokuapp.com/](https://calm-beach-85847.herokuapp.com/)
+
 ## User stories
 * [x] User can view student list
 * [x] User can add new student
