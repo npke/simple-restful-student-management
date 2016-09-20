@@ -16,7 +16,7 @@ Demo on heroku: [https://calm-beach-85847.herokuapp.com/](https://calm-beach-858
 git clone https://github.com/npke/simple-restful-student-management
 ```
 
-* Install node module and bower component
+* Install node modules and bower components
 
 ```terminal
 npm install
