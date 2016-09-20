@@ -29,7 +29,7 @@ node index
 
 ## Notes
 
-This simple application just use to demonstrate how a RESTful webservice works so check user's input, validate input is not included.
+This simple application just use to demonstrate how a RESTful webservice works so check user's input, validate input is not included.  
 The application doesn't use any database to store data.
 
 
