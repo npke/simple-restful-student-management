@@ -8,10 +8,11 @@
 <body ng-app="studentManagementApp">
 
 <div id="container" ng-controller="studentController" >
+    <p ng-model="message"></p>
     <table class="table table-striped table-hover">
         <thead>
         <tr>
-            <th></th>
+            <th>#</th>
             <th>Student ID</th>
             <th>Full name</th>
             <th>GPA</th>
@@ -20,7 +21,7 @@
         </thead>
         <tbody>
         <tr>
-            <td>#</td>
+            <td></td>
             <td>
                 <input ng-model="student.studentID" type="number" class="form-control" placeholder="Student ID" />
             </td>

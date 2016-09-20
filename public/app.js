@@ -7,48 +7,22 @@ app.controller('studentController', function ($scope, $http) {
     $scope.isEdittingStudent = false;
 
     $scope.getStudentList = function () {
-        $scope.students.push( {
-            studentID: 1312241,
-            fullName: "Anh Huy Nguyen",
-            GPA: 9.0
-        });
-
-        $scope.students.push( {
-            studentID: 1312276,
-            fullName: "Ke Nguyen Phu",
-            GPA: 9.5
-        });
-
-        $scope.students.push( {
-            studentID: 1312666,
-            fullName: "Tuan Nguyen Van",
-            GPA: 9.8
-        });
-
-
-        $scope.students.push( {
-            studentID: 1312265,
-            fullName: "Hung Minh Diep",
-            GPA: 9.0
-        });
-
-
-        $scope.students.push( {
-            studentID: 1312265,
-            fullName: "Hung Pham",
-            GPA: 8.0
-        });
-
-        $scope.students.push( {
-            studentID: 1312214,
-            fullName: "Duy Hoang Nguyen",
-            GPA: 9.0
+        $http.get('/api/students').then(function (res) {
+           $scope.students = res.data;
+        }, function (err) {
+            $scope.message = err.message;
         });
     };
 
     $scope.addStudent = function () {
-        $scope.students.push(angular.copy($scope.student));
-        $scope.student = {};
+        $http.post('/api/students', $scope.student).then(function(res) {
+            $scope.students.push(angular.copy($scope.student));
+            $scope.student = {};
+        }, function (err) {
+            $scope.student = {};
+            console.log(err);
+            $scope.message = err.message;
+        })
     };
 
     $scope.editStudent = function (student, index) {
@@ -59,9 +33,16 @@ app.controller('studentController', function ($scope, $http) {
     };
 
     $scope.saveStudent = function (index) {
-        $scope.students[index] = angular.copy($scope.student);
-        $scope.student = {};
-        $scope.isEdittingStudent = false;
+        $http.put('/api/student/' + index, $scope.student).then(function (data) {
+            $scope.students[index] = angular.copy($scope.student);
+            $scope.student = {};
+            $scope.isEdittingStudent = false;
+        }, function (err) {
+            console.log(err);
+            $scope.student = {};
+            $scope.isEdittingStudent = false;
+            $scope.message = err.message;
+        });
     };
 
     $scope.cancelEdit = function () {
@@ -70,7 +51,12 @@ app.controller('studentController', function ($scope, $http) {
     };
     
     $scope.deleteStudent = function (index) {
-        $scope.students.splice(index, 1);
+        $http.delete('/api/student/' + index).then(function (data) {
+            $scope.students.splice(index, 1);
+        }, function (err) {
+            console.log(err);
+            $scope.message = err.message;
+        });
     }
 
     $scope.getStudentList();

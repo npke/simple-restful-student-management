@@ -4,14 +4,19 @@ var bodyParser = require('body-parser');
 var app = express();
 
 var students = [{
-    studentID: 1312241,
-    fullName: "Anh Huy Nguyen",
-    GPA: 9.0
+        studentID: 1312241,
+        fullName: "Anh Huy Nguyen",
+        GPA: 9.0
     },
     {
         studentID: 1312276,
         fullName: "Ke Nguyen Phu",
         GPA: 9.5
+    },
+    {
+        studentID: 1312265,
+        fullName: "Hung Minh Diep",
+        GPA: 9.0
     }];
 
 
