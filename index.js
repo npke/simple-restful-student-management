@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 
 var app = express();
+var port = process.env.PORT || 8080;
 
 var students = [{
         studentID: 1312241,
@@ -46,6 +47,6 @@ app.route('/api/student/:id')
         res.json(students);
     });
 
-app.listen(8080, function () {
+app.listen(port, function () {
     console.log('Server running at http://localhost:8080');
 });
