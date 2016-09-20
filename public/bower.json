@@ -1,0 +1,20 @@
+{
+  "name": "simple-student-management",
+  "authors": [
+    "Ke Nguyen Phu <kenguyen276@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "angularjs#1.5.8"
+  }
+}
