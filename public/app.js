@@ -2,20 +2,20 @@ var app = angular.module('studentManagementApp', []);
 
 app.controller('studentController', function ($scope, $http) {
 
-    $scope.student =  {};
+    $scope.student = {};
     $scope.students = [];
     $scope.isEdittingStudent = false;
 
     $scope.getStudentList = function () {
         $http.get('/api/students').then(function (res) {
-           $scope.students = res.data;
+            $scope.students = res.data;
         }, function (err) {
             $scope.message = err.message;
         });
     };
 
     $scope.addStudent = function () {
-        $http.post('/api/students', $scope.student).then(function(res) {
+        $http.post('/api/students', $scope.student).then(function (res) {
             $scope.students.push(angular.copy($scope.student));
             $scope.student = {};
         }, function (err) {
@@ -49,7 +49,7 @@ app.controller('studentController', function ($scope, $http) {
         $scope.isEdittingStudent = false;
         $scope.student = {};
     };
-    
+
     $scope.deleteStudent = function (index) {
         $http.delete('/api/student/' + index).then(function (data) {
             $scope.students.splice(index, 1);
@@ -57,7 +57,7 @@ app.controller('studentController', function ($scope, $http) {
             console.log(err);
             $scope.message = err.message;
         });
-    }
+    };
 
     $scope.getStudentList();
 });
